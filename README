@@ -1,0 +1,17 @@
+GhostRider is pretty straight forward.  Example:
+
+$ghost = new GhostRider("/usr/local/bin/"); // the location of 'gs' if your PHP does not execute it correctly by default. To find, enter 'which gs' in Command Line
+$ghost->set_input("/var/www/example.com/html/public/temp/test.pdf");  // your input file
+$ghost->add_option("-dSAFER");
+$ghost->add_option("-dBATCH");
+$ghost->add_option("-dNOPAUSE");
+$ghost->add_option("-dGraphicsAlphaBits=4");
+$ghost->add_option("-dTextAlphaBits=4");
+$ghost->add_option("-sDEVICE=jpeg");
+$ghost->add_option("-r300");
+$ghost->add_option("-sOutputFile=/var/www/example.com/html/public/temp/test.jpg");
+$ride = $ghost->ride(); // run the 'gs' command
+if($ride)
+  echo "Successful";
+else
+  echo "Error: " . $ride;
